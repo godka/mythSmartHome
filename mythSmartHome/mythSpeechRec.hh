@@ -8,6 +8,7 @@ extern "C"{
 #include <string>
 #include "cJSON.h"
 #include "mythSpeechFactory.hh"
+#include "mythCommonUtils.hh"
 //a wonderful class about speech rec
 //it should be used in singleton mode
 //created by MythKAst

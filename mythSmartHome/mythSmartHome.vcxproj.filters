@@ -40,6 +40,9 @@
     <ClCompile Include="main.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="mythCommonUtils.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="iconv.lib" />
@@ -63,5 +66,6 @@
     <ClInclude Include="VirtualSpeech.hh">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="mythCommonUtils.hh" />
   </ItemGroup>
 </Project>

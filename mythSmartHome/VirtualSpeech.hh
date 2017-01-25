@@ -30,6 +30,7 @@ extern "C"{
 #include "qtts.h"
 }
 #include "mythLog.hh"
+#include "mythCommonUtils.hh"
 /* wav音频头部格式 */
 typedef struct _wave_pcm_hdr
 {
@@ -53,15 +54,6 @@ typedef struct _wave_pcm_hdr
 class VirtualSpeech
 {
 public:
-	static inline int mythDelay(unsigned long usec)
-	{
-#ifdef WIN32
-		Sleep((DWORD) (usec));
-#else
-		usleep(usec * 1000);
-#endif
-		return 0;
-	}
 	virtual void Start();
 	VirtualSpeech(cJSON* root);
 	~VirtualSpeech();

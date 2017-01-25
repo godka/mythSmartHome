@@ -123,7 +123,7 @@ void mythSpeechRec::StartLoop()
 			if (isquit)
 				break;
 		}
-		VirtualSpeech::mythDelay(1);
+		mythDelay(1);
 	}
 	sr_uninit(&iat);
 }

@@ -22,6 +22,7 @@
     <ClCompile Include="cJSON.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mythCommonSmartHome.cpp" />
+    <ClCompile Include="mythCommonUtils.cpp" />
     <ClCompile Include="mythLightSmartHome.cpp" />
     <ClCompile Include="mythLog.cpp" />
     <ClCompile Include="mythSpeechFactory.cpp" />
@@ -35,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mythCommonSmartHome.hh" />
+    <ClInclude Include="mythCommonUtils.hh" />
     <ClInclude Include="mythLightSmartHome.hh" />
     <ClInclude Include="mythLog.hh" />
     <ClInclude Include="mythSpeechFactory.hh" />
