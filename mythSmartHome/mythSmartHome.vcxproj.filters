@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{25985028-90af-4065-8ae8-ef10a77154a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="speech_recognizer.c">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="winrec.c">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="cJSON.c">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="mythSpeechRec.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="mythSpeechFactory.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="VirtualSpeech.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="mythLightSmartHome.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="mythLog.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="mythCommonSmartHome.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="iconv.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mythLog.hh">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="mythLightSmartHome.hh">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="mythCommonSmartHome.hh">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="mythSpeechFactory.hh">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="mythSpeechRec.hh">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="VirtualSpeech.hh">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
