@@ -24,7 +24,7 @@ void mythLightSmartHome::Start()
 			cJSON* m_attr = cJSON_GetObjectItem(m_slots, "attrValue");
 			if (m_attr){
 				char* _attr = m_attr->valuestring;
-				int ret = strcmp(_attr, "��");
+				int ret = strcmp(_attr, "开");
 				if (ret == 0){
 					cJSON_AddStringToObject(out, "command", "on");
 				}
@@ -42,6 +42,7 @@ void mythLightSmartHome::Start()
 		char* out_str = cJSON_PrintUnformatted(out);
 		mythLog::GetInstance()->printf("[Start Boardcast]%s\n",out_str);
 		on_boardcast(out_str);
+		on_speak("操作成功");
 		free(out_str);
 	}
 	cJSON_Delete(out);

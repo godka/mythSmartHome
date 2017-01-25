@@ -66,6 +66,8 @@
     <ClInclude Include="VirtualSpeech.hh">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="mythCommonUtils.hh" />
+    <ClInclude Include="mythCommonUtils.hh">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
