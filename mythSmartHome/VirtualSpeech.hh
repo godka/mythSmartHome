@@ -1,11 +1,7 @@
 #pragma once
 #include <stdio.h>
 extern "C"{
-#ifdef WIN32
-#include "./include/speech_recognizer.h"
-#else
 #include "speech_recognizer.h"
-#endif
 #include "msp_errors.h"
 #ifdef WIN32
 #include <windows.h>

@@ -1,10 +1,6 @@
 #pragma once
 extern "C"{
-#ifdef WIN32
-#include "./include/speech_recognizer.h"
-#else
 #include "speech_recognizer.h"
-#endif
 #include "qtts.h"
 #include "msp_cmn.h"
 #include "msp_errors.h"

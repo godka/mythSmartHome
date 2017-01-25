@@ -13,13 +13,13 @@
 #include "qisr.h"
 #include "msp_cmn.h"
 #include "msp_errors.h"
-#include "./include/winrec.h"
-#include "./include/speech_recognizer.h"
+#include "winrec.h"
+#include "speech_recognizer.h"
 
 #ifdef _WIN64
-#pragma comment(lib,"../../libs/msc_x64.lib") //x64
+#pragma comment(lib,"../libs/msc_x64.lib") //x64
 #else
-#pragma comment(lib,"../../libs/msc.lib") //x86
+#pragma comment(lib,"../libs/msc.lib") //x86
 #endif
 
 #define SR_DBGON 0

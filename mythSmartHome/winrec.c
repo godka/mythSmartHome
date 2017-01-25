@@ -12,7 +12,7 @@
 #include <mmsystem.h>   
 #include <process.h>
 #include <errno.h>
-#include "./include/winrec.h"
+#include "winrec.h"
 
 #pragma comment(lib, "winmm.lib") 
 
