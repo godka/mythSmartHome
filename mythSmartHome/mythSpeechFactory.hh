@@ -2,6 +2,7 @@
 #include "VirtualSpeech.hh"
 #include "mythLightSmartHome.hh"
 #include "mythCommonSmartHome.hh"
+#include "mythNopSmartHome.hh"
 #include <string>
 class mythSpeechFactory
 {

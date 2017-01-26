@@ -41,14 +41,15 @@ void mythSpeechRec::on_result(const char *result, char is_last){
 	if (result){
 		_result += result;
 		if (is_last){
+			mythLog::GetInstance()->printf("[on_result]%s\n", _result.c_str());
 			int str_len = _result.size();
 			int ret = 0;
 			const char* rec_text = MSPSearch("nlp_version =2.0", _result.c_str(), (unsigned int*) &str_len, &ret);
 			if (MSP_SUCCESS != ret){
-				mythLog::GetInstance()->printf("[MSPSearch] failed code is:%d\n", ret);
+				mythLog::GetInstance()->printf("[MSPSearch]failed code is:%d\n", ret);
 			}
 			else{
-				mythLog::GetInstance()->printf("[MSPSearch] success code is:%d\n", ret);
+				mythLog::GetInstance()->printf("[MSPSearch]success code is:%d\n", ret);
 				on_result_decode(rec_text);
 			}
 		}
@@ -62,15 +63,11 @@ void mythSpeechRec::on_result_decode(const char* str){
 		mythLog::GetInstance()->printf("[on_result_decode]str to json failed\n");
 		return;
 	}
-	cJSON* m_rc = cJSON_GetObjectItem(root, "rc");
-	int m_rc_int = m_rc ? m_rc->valueint : 4;
-	if (m_rc_int == 0){
-		VirtualSpeech* speech = mythSpeechFactory::CreateNew(root);
-		if (speech){
-			speech->Start();
-		}
-		delete speech;
+	VirtualSpeech* speech = mythSpeechFactory::CreateNew(root);
+	if (speech){
+		speech->Start();
 	}
+	delete speech;
 	cJSON_Delete(root);
 }
 
@@ -95,8 +92,6 @@ void mythSpeechRec::on_speech_end(int reason)
 void mythSpeechRec::StartLoop()
 {
 	int errcode;
-	int i = 0;
-
 	struct speech_rec iat;
 	char isquit = 0;
 	struct speech_rec_notifier recnotifier = { on_result_static, on_speech_begin_static, on_speech_end_static };

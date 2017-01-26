@@ -43,6 +43,9 @@
     <ClCompile Include="mythSoundManager.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="mythNopSmartHome.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="iconv.lib" />
@@ -72,6 +75,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="mythSoundManager.hh">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="mythNopSmartHome.hh">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

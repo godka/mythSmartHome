@@ -43,6 +43,7 @@ int VirtualSpeech::on_speak(const char* src_text)
 		printf("params is error!\n");
 		return ret;
 	}
+	mythLog::GetInstance()->printf("[on_speak]start speak:%s\n", src_text);
 	/* 开始合成 */
 	sessionID = QTTSSessionBegin(params, &ret);
 	if (MSP_SUCCESS != ret)
@@ -72,7 +73,6 @@ int VirtualSpeech::on_speak(const char* src_text)
 			break;
 	}
 
-	mythLog::GetInstance()->printf("[on_speak]stop merge speak\n");
 	if (MSP_SUCCESS != ret)
 	{
 		mythLog::GetInstance()->printf("[on_speak]QTTSAudioGet failed, error code: %d.\n", ret);

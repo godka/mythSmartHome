@@ -24,6 +24,7 @@
     <ClCompile Include="mythCommonSmartHome.cpp" />
     <ClCompile Include="mythLightSmartHome.cpp" />
     <ClCompile Include="mythLog.cpp" />
+    <ClCompile Include="mythNopSmartHome.cpp" />
     <ClCompile Include="mythSoundManager.cpp" />
     <ClCompile Include="mythSpeechFactory.cpp" />
     <ClCompile Include="mythSpeechRec.cpp" />
@@ -41,6 +42,7 @@
     <ClInclude Include="mythCommonUtils.hh" />
     <ClInclude Include="mythLightSmartHome.hh" />
     <ClInclude Include="mythLog.hh" />
+    <ClInclude Include="mythNopSmartHome.hh" />
     <ClInclude Include="mythSoundManager.hh" />
     <ClInclude Include="mythSpeechFactory.hh" />
     <ClInclude Include="mythSpeechRec.hh" />
