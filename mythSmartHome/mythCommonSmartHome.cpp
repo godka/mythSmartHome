@@ -13,7 +13,7 @@ mythCommonSmartHome::~mythCommonSmartHome()
 
 void mythCommonSmartHome::Start()
 {
-	mythLog::GetInstance()->printf("Starting in Common loop\n");
+	mythLog::GetInstance()->printf("[mythCommonSmartHome]Start loop\n");
 	cJSON* m_answer = cJSON_GetObjectItem(_root, "answer");
 	if (m_answer){
 		cJSON* m_type = cJSON_GetObjectItem(m_answer, "type");

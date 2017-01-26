@@ -22,9 +22,9 @@
     <ClCompile Include="cJSON.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mythCommonSmartHome.cpp" />
-    <ClCompile Include="mythCommonUtils.cpp" />
     <ClCompile Include="mythLightSmartHome.cpp" />
     <ClCompile Include="mythLog.cpp" />
+    <ClCompile Include="mythSoundManager.cpp" />
     <ClCompile Include="mythSpeechFactory.cpp" />
     <ClCompile Include="mythSpeechRec.cpp" />
     <ClCompile Include="speech_recognizer.c" />
@@ -33,12 +33,15 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="iconv.lib" />
+    <Library Include="SDL2.lib" />
+    <Library Include="SDL2main.lib" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mythCommonSmartHome.hh" />
     <ClInclude Include="mythCommonUtils.hh" />
     <ClInclude Include="mythLightSmartHome.hh" />
     <ClInclude Include="mythLog.hh" />
+    <ClInclude Include="mythSoundManager.hh" />
     <ClInclude Include="mythSpeechFactory.hh" />
     <ClInclude Include="mythSpeechRec.hh" />
     <ClInclude Include="VirtualSpeech.hh" />
@@ -124,6 +127,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winmm.lib;imm32.lib;version.lib;wsock32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>del $(ProjectDir)..\bin\$(TargetFileName)</Command>
@@ -165,6 +169,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>winmm.lib;imm32.lib;version.lib;wsock32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>del $(ProjectDir)..\bin\$(TargetFileName)</Command>

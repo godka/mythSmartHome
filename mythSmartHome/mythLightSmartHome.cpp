@@ -13,7 +13,7 @@ mythLightSmartHome::~mythLightSmartHome()
 void mythLightSmartHome::Start()
 {
 	//I am in light loop
-	mythLog::GetInstance()->printf("Starting in Light loop\n");
+	mythLog::GetInstance()->printf("[mythLightSmartHome]Start loop\n");
 	cJSON* out = cJSON_CreateObject();
 	cJSON* m_service = cJSON_GetObjectItem(_root, "service");
 	cJSON_AddStringToObject(out, "service", m_service ? m_service->valuestring : "undefined");

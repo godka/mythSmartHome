@@ -40,12 +40,14 @@
     <ClCompile Include="main.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="mythCommonUtils.cpp">
+    <ClCompile Include="mythSoundManager.cpp">
       <Filter>sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="iconv.lib" />
+    <Library Include="SDL2main.lib" />
+    <Library Include="SDL2.lib" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mythLog.hh">
@@ -67,6 +69,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="mythCommonUtils.hh">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="mythSoundManager.hh">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
