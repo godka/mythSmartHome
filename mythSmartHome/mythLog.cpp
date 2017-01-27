@@ -7,11 +7,11 @@ mythLog*  mythLog::mmythLog = nullptr;
 void mythLog::printf(const char * format, ...)
 {
 	_mutex.lock();
-	static char str[256] = { 0 };
+	static char str[4096] = { 0 };
 	va_list argptr;
 
 	va_start(argptr, format);
-	int len = vsnprintf(str, 256, format, argptr);
+	int len = vsnprintf(str, 4096, format, argptr);
 	va_end(argptr);
 	static char timefile[64] = { 0 };
 	auto t = std::chrono::system_clock::now();
