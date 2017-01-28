@@ -1,16 +1,4 @@
 #include "mythSpeechRec.hh"
-
-mythSpeechRec* mythSpeechRec::GetIntance()
-{
-	if (!mmythSpeechRec){
-		return CreateNew();
-	}
-	else{
-		return mmythSpeechRec;
-	}
-}
-
-mythSpeechRec*  mythSpeechRec::mmythSpeechRec = nullptr;
 mythSpeechRec::mythSpeechRec()
 {
 	int	ret = MSP_SUCCESS;
@@ -23,12 +11,10 @@ mythSpeechRec::mythSpeechRec()
 		mythLog::GetInstance()->printf("[MSPLogin]failed code %d.\n", ret);
 		MSPLogout();
 		Success = false;
-		mmythSpeechRec = nullptr;
 	}
 	else{
 		mythLog::GetInstance()->printf("[MSPLogin]success code %d.\n", ret);
 		Success = true;
-		mmythSpeechRec = this;
 	}
 }
 
@@ -94,7 +80,7 @@ void mythSpeechRec::StartLoop()
 	int errcode;
 	struct speech_rec iat;
 	char isquit = 0;
-	struct speech_rec_notifier recnotifier = { on_result_static, on_speech_begin_static, on_speech_end_static };
+	struct speech_rec_notifier recnotifier = { on_result_static, on_speech_begin_static, on_speech_end_static ,this};
 #ifdef WIN32
 	errcode = sr_init(&iat, _session_begin_params.c_str(), SR_MIC, DEFAULT_INPUT_DEVID, &recnotifier);
 #else

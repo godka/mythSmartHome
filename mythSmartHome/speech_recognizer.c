@@ -113,7 +113,7 @@ static void end_sr_on_error(struct speech_rec *sr, int errcode)
 	
 	if (sr->session_id) {
 		if (sr->notif.on_speech_end)
-			sr->notif.on_speech_end(errcode);
+			sr->notif.on_speech_end(sr->notif.ptr, errcode);
 
 		QISRSessionEnd(sr->session_id, "err");
 		sr->session_id = NULL;
@@ -135,14 +135,14 @@ static void end_sr_on_vad(struct speech_rec *sr)
 	while(sr->rec_stat != MSP_REC_STATUS_COMPLETE ){
 		rslt = QISRGetResult(sr->session_id, &sr->rec_stat, 0, &errcode);
 		if (rslt && sr->notif.on_result)
-			sr->notif.on_result(rslt, sr->rec_stat == MSP_REC_STATUS_COMPLETE ? 1 : 0);
+			sr->notif.on_result(sr->notif.ptr, rslt, sr->rec_stat == MSP_REC_STATUS_COMPLETE ? 1 : 0);
 
 		Sleep(100); /* for cpu occupy, should sleep here */
 	}
 
 	if (sr->session_id) {
 		if (sr->notif.on_speech_end)
-			sr->notif.on_speech_end(END_REASON_VAD_DETECT);
+			sr->notif.on_speech_end(sr->notif.ptr, END_REASON_VAD_DETECT);
 		QISRSessionEnd(sr->session_id, "VAD Normal");
 		sr->session_id = NULL;
 	}
@@ -314,7 +314,7 @@ int sr_start_listening(struct speech_rec *sr)
 	sr->state = SR_STATE_STARTED;
 
 	if (sr->notif.on_speech_begin)
-		sr->notif.on_speech_begin();
+		sr->notif.on_speech_begin(sr->notif.ptr);
 
 	return 0;
 }
@@ -367,7 +367,7 @@ int sr_stop_listening(struct speech_rec *sr)
 			return ret;
 		}
 		if (NULL != rslt && sr->notif.on_result)
-			sr->notif.on_result(rslt, sr->rec_stat == MSP_REC_STATUS_COMPLETE ? 1 : 0);
+			sr->notif.on_result(sr->notif.ptr, rslt, sr->rec_stat == MSP_REC_STATUS_COMPLETE ? 1 : 0);
 		Sleep(100);
 	}
 
@@ -400,7 +400,7 @@ int sr_write_audio_data(struct speech_rec *sr, char *data, unsigned int len)
 			return ret;
 		}
 		if (NULL != rslt && sr->notif.on_result)
-			sr->notif.on_result(rslt, sr->rec_stat == MSP_REC_STATUS_COMPLETE ? 1 : 0);
+			sr->notif.on_result(sr->notif.ptr, rslt, sr->rec_stat == MSP_REC_STATUS_COMPLETE ? 1 : 0);
 	}
 
 	if (MSP_EP_AFTER_SPEECH == sr->ep_stat)

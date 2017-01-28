@@ -17,8 +17,6 @@ extern "C"{
 class mythSpeechRec
 {
 public:
-	static mythSpeechRec* GetIntance();
-	static mythSpeechRec* mmythSpeechRec;
 	static mythSpeechRec* CreateNew(){
 		auto _speechrec = new mythSpeechRec();
 		if (_speechrec->Success){
@@ -29,16 +27,25 @@ public:
 			return nullptr;
 		}
 	}
-	static void on_result_static(const char* result, char is_last){
-		mythSpeechRec::GetIntance()->on_result(result, is_last);
+	static void on_result_static(void* ptr,const char* result, char is_last){
+		if (ptr){
+			mythSpeechRec* speech = (mythSpeechRec*) ptr;
+			speech->on_result(result, is_last);
+		}
 	}
 
-	static void on_speech_begin_static(){
-		mythSpeechRec::GetIntance()->on_speech_begin();
+	static void on_speech_begin_static(void* ptr){
+		if (ptr){
+			mythSpeechRec* speech = (mythSpeechRec*) ptr;
+			speech->on_speech_begin();
+		}
 	}
 
-	static void on_speech_end_static(int reason){
-		mythSpeechRec::GetIntance()->on_speech_end(reason);
+	static void on_speech_end_static(void* ptr,int reason){
+		if (ptr){
+			mythSpeechRec* speech = (mythSpeechRec*) ptr;
+			speech->on_speech_end(reason);
+		}
 	}
 	virtual void on_result(const char *result, char is_last);
 	void on_result_decode(const char* str);
